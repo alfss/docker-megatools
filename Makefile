@@ -1,6 +1,6 @@
 REGISTRY_NAME := "alfss"
 IMAGE_NAME := "megatools"
-IMAGE_VERSION := "1.9.98-1"
+IMAGE_VERSION := "latest"
 
 all: build
 .PHONY : all
