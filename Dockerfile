@@ -4,4 +4,9 @@ COPY assets/setup.sh /setup.sh
 RUN chmod +x /setup.sh
 RUN /setup.sh
 
-CMD ["/bin/bash", "-c", "cron && tail -f /var/log/cron.log"]
+COPY assets/start-cron.sh /start-cron.sh
+RUN chmod +x /start-cron.sh
+
+#COPY assets/example_cron /etc/cron.d/example
+
+CMD ["/start-cron.sh"]
