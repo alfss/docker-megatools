@@ -48,12 +48,8 @@ done
 # start cron
 service cron start
 
-# trap SIGINT and SIGTERM signals and gracefully exit
-trap "service cron stop; kill \$!; exit" SIGINT SIGTERM
+sleep 1
 
-# start "daemon"
-while true
-do
-    # watch /var/log/cron.log restarting if necessary
-    cat /var/log/cron.log & wait $!
-done
+echo "start container" >> /var/log/cron.log
+
+tail -f /var/log/cron.log
